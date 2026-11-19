@@ -1,0 +1,166 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "E:\\Task-Manager-FullStack\\TaskManager.Api\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{96143A71-367A-4580-BC4F-416B240EB105}|TaskManager.Api\\TaskManager.Api.csproj|e:\\task-manager-fullstack\\taskmanager.api\\taskmanager.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{96143A71-367A-4580-BC4F-416B240EB105}|TaskManager.Api\\TaskManager.Api.csproj|solutionrelative:taskmanager.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{96143A71-367A-4580-BC4F-416B240EB105}|TaskManager.Api\\TaskManager.Api.csproj|e:\\task-manager-fullstack\\taskmanager.api\\taskmanager.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{96143A71-367A-4580-BC4F-416B240EB105}|TaskManager.Api\\TaskManager.Api.csproj|solutionrelative:taskmanager.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A75C7D9E-B329-4519-9B0D-A8CABB972AAA}|TaskManager.ViewModels\\TaskManager.ViewModels.csproj|e:\\task-manager-fullstack\\taskmanager.api\\taskmanager.viewmodels\\authuservm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A75C7D9E-B329-4519-9B0D-A8CABB972AAA}|TaskManager.ViewModels\\TaskManager.ViewModels.csproj|solutionrelative:taskmanager.viewmodels\\authuservm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5E383125-59B2-4742-884F-AE264D56466E}|TaskManager.Repository\\TaskManager.Repository.csproj|e:\\task-manager-fullstack\\taskmanager.api\\taskmanager.repository\\applicationuserrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5E383125-59B2-4742-884F-AE264D56466E}|TaskManager.Repository\\TaskManager.Repository.csproj|solutionrelative:taskmanager.repository\\applicationuserrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{96143A71-367A-4580-BC4F-416B240EB105}|TaskManager.Api\\TaskManager.Api.csproj|e:\\task-manager-fullstack\\taskmanager.api\\taskmanager.api\\controllers\\applicationusercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{96143A71-367A-4580-BC4F-416B240EB105}|TaskManager.Api\\TaskManager.Api.csproj|solutionrelative:taskmanager.api\\controllers\\applicationusercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5E383125-59B2-4742-884F-AE264D56466E}|TaskManager.Repository\\TaskManager.Repository.csproj|e:\\task-manager-fullstack\\taskmanager.api\\taskmanager.repository\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5E383125-59B2-4742-884F-AE264D56466E}|TaskManager.Repository\\TaskManager.Repository.csproj|solutionrelative:taskmanager.repository\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A75C7D9E-B329-4519-9B0D-A8CABB972AAA}|TaskManager.ViewModels\\TaskManager.ViewModels.csproj|e:\\task-manager-fullstack\\taskmanager.api\\taskmanager.viewmodels\\configuration\\jwtsettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A75C7D9E-B329-4519-9B0D-A8CABB972AAA}|TaskManager.ViewModels\\TaskManager.ViewModels.csproj|solutionrelative:taskmanager.viewmodels\\configuration\\jwtsettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5E383125-59B2-4742-884F-AE264D56466E}|TaskManager.Repository\\TaskManager.Repository.csproj|e:\\task-manager-fullstack\\taskmanager.api\\taskmanager.repository\\services\\iapplicationuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5E383125-59B2-4742-884F-AE264D56466E}|TaskManager.Repository\\TaskManager.Repository.csproj|solutionrelative:taskmanager.repository\\services\\iapplicationuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{96143A71-367A-4580-BC4F-416B240EB105}|TaskManager.Api\\TaskManager.Api.csproj|e:\\task-manager-fullstack\\taskmanager.api\\taskmanager.api\\migrations\\20250819114755_initcreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{96143A71-367A-4580-BC4F-416B240EB105}|TaskManager.Api\\TaskManager.Api.csproj|solutionrelative:taskmanager.api\\migrations\\20250819114755_initcreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "E:\\Task-Manager-FullStack\\TaskManager.Api\\TaskManager.Api\\appsettings.json",
+              "RelativeDocumentMoniker": "TaskManager.Api\\appsettings.json",
+              "ToolTip": "E:\\Task-Manager-FullStack\\TaskManager.Api\\TaskManager.Api\\appsettings.json",
+              "RelativeToolTip": "TaskManager.Api\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-11-19T09:48:55.36Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ApplicationUserController.cs",
+              "DocumentMoniker": "E:\\Task-Manager-FullStack\\TaskManager.Api\\TaskManager.Api\\Controllers\\ApplicationUserController.cs",
+              "RelativeDocumentMoniker": "TaskManager.Api\\Controllers\\ApplicationUserController.cs",
+              "ToolTip": "E:\\Task-Manager-FullStack\\TaskManager.Api\\TaskManager.Api\\Controllers\\ApplicationUserController.cs",
+              "RelativeToolTip": "TaskManager.Api\\Controllers\\ApplicationUserController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-16T09:50:31.38Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ApplicationUserRepository.cs",
+              "DocumentMoniker": "E:\\Task-Manager-FullStack\\TaskManager.Api\\TaskManager.Repository\\ApplicationUserRepository.cs",
+              "RelativeDocumentMoniker": "TaskManager.Repository\\ApplicationUserRepository.cs",
+              "ToolTip": "E:\\Task-Manager-FullStack\\TaskManager.Api\\TaskManager.Repository\\ApplicationUserRepository.cs",
+              "RelativeToolTip": "TaskManager.Repository\\ApplicationUserRepository.cs",
+              "ViewState": "AgIAAFUAAAAAAAAAAAAgwBcAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-16T09:50:31.452Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "AuthUserVm.cs",
+              "DocumentMoniker": "E:\\Task-Manager-FullStack\\TaskManager.Api\\TaskManager.ViewModels\\AuthUserVm.cs",
+              "RelativeDocumentMoniker": "TaskManager.ViewModels\\AuthUserVm.cs",
+              "ToolTip": "E:\\Task-Manager-FullStack\\TaskManager.Api\\TaskManager.ViewModels\\AuthUserVm.cs",
+              "RelativeToolTip": "TaskManager.ViewModels\\AuthUserVm.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-16T09:50:31.354Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "ApplicationDbContext.cs",
+              "DocumentMoniker": "E:\\Task-Manager-FullStack\\TaskManager.Api\\TaskManager.Repository\\ApplicationDbContext.cs",
+              "RelativeDocumentMoniker": "TaskManager.Repository\\ApplicationDbContext.cs",
+              "ToolTip": "E:\\Task-Manager-FullStack\\TaskManager.Api\\TaskManager.Repository\\ApplicationDbContext.cs",
+              "RelativeToolTip": "TaskManager.Repository\\ApplicationDbContext.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAABkAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-16T09:50:31.336Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "IApplicationUser.cs",
+              "DocumentMoniker": "E:\\Task-Manager-FullStack\\TaskManager.Api\\TaskManager.Repository\\Services\\IApplicationUser.cs",
+              "RelativeDocumentMoniker": "TaskManager.Repository\\Services\\IApplicationUser.cs",
+              "ToolTip": "E:\\Task-Manager-FullStack\\TaskManager.Api\\TaskManager.Repository\\Services\\IApplicationUser.cs",
+              "RelativeToolTip": "TaskManager.Repository\\Services\\IApplicationUser.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-16T09:50:31.375Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Program.cs",
+              "DocumentMoniker": "E:\\Task-Manager-FullStack\\TaskManager.Api\\TaskManager.Api\\Program.cs",
+              "RelativeDocumentMoniker": "TaskManager.Api\\Program.cs",
+              "ToolTip": "E:\\Task-Manager-FullStack\\TaskManager.Api\\TaskManager.Api\\Program.cs",
+              "RelativeToolTip": "TaskManager.Api\\Program.cs",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAAACYAAABDAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-16T09:50:31.385Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "JwtSettings.cs",
+              "DocumentMoniker": "E:\\Task-Manager-FullStack\\TaskManager.Api\\TaskManager.ViewModels\\Configuration\\JwtSettings.cs",
+              "RelativeDocumentMoniker": "TaskManager.ViewModels\\Configuration\\JwtSettings.cs",
+              "ToolTip": "E:\\Task-Manager-FullStack\\TaskManager.Api\\TaskManager.ViewModels\\Configuration\\JwtSettings.cs",
+              "RelativeToolTip": "TaskManager.ViewModels\\Configuration\\JwtSettings.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-16T09:50:31.359Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "20250819114755_initCreate.cs",
+              "DocumentMoniker": "E:\\Task-Manager-FullStack\\TaskManager.Api\\TaskManager.Api\\Migrations\\20250819114755_initCreate.cs",
+              "RelativeDocumentMoniker": "TaskManager.Api\\Migrations\\20250819114755_initCreate.cs",
+              "ToolTip": "E:\\Task-Manager-FullStack\\TaskManager.Api\\TaskManager.Api\\Migrations\\20250819114755_initCreate.cs",
+              "RelativeToolTip": "TaskManager.Api\\Migrations\\20250819114755_initCreate.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-16T09:50:31.098Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
