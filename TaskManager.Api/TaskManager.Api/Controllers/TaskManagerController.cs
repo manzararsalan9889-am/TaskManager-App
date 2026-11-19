@@ -17,9 +17,10 @@ namespace TaskManager.Api.Controllers
             taskManager = _taskManager;
         }
         [HttpGet]
-        public IActionResult GetAllTasks()
+        [HttpGet("/api/tasks")]
+        public IActionResult GetAllTasks(EPriority? priority = null, string? sortBy = null)
         {
-            return Ok(taskManager.GetAllTasks());
+            return Ok(taskManager.GetAllTasks(priority, sortBy));
         }
         [HttpGet]
         public IActionResult GetByIsCompleted(EBool eBool)

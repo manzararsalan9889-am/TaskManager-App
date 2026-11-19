@@ -18,9 +18,20 @@ namespace TaskManager.Repository
         {
             _context = context;
         }
-        public IEnumerable<TaskManagerVm> GetAllTasks()
+        public IEnumerable<TaskManagerVm> GetAllTasks(EPriority? priority, string? sortBy)
         {
-            var lst = _context.TaskManagers.ToList();
+            var tasks = _context.TaskManagers.AsQueryable();
+            if (priority.HasValue)
+            {
+                tasks = tasks.Where(task => task.Priority == priority.Value);
+            }
+            if (string.Equals(sortBy, "dueDate", StringComparison.OrdinalIgnoreCase))
+            {
+                tasks = tasks.OrderBy(task => task.DueDate == null)
+                    .ThenBy(task => task.DueDate);
+            }
+
+            var lst = tasks.ToList();
             List<TaskManagerVm> taskManagers = new List<TaskManagerVm>();
 
             foreach (var item in lst)
@@ -32,6 +43,8 @@ namespace TaskManager.Repository
                         Description = item.Description,
                         IsCompleted = item.IsCompleted,
                         Title = item.Title,
+                        Priority = item.Priority,
+                        DueDate = item.DueDate,
                     });
                 }
             }
@@ -52,6 +65,8 @@ namespace TaskManager.Repository
                         Title = vm.Title,
                         Description = vm.Description,
                         IsCompleted = vm.IsCompleted,
+                        Priority = vm.Priority,
+                        DueDate = vm.DueDate,
                     });
                 }
                 response.Data = data;
@@ -75,6 +90,8 @@ namespace TaskManager.Repository
                     Description = param.Description,
                     IsCompleted = param.IsCompleted,
                     Title = param.Title,
+                    Priority = param.Priority,
+                    DueDate = param.DueDate,
                 };
                 _context.TaskManagers.Add(taskManagerm);
                 var a = _context.SaveChanges();
@@ -99,6 +116,8 @@ namespace TaskManager.Repository
                     Description = param.Description,
                     IsCompleted = param.IsCompleted,
                     Title = param.Title,
+                    Priority = param.Priority,
+                    DueDate = param.DueDate,
                 };
                 _context.TaskManagers.Update(taskManagerm);
                 int a = _context.SaveChanges();

@@ -13,5 +13,7 @@ namespace TaskManager.ViewModels
         public string Title { get; set; }
         public string Description { get; set; }
         public EBool IsCompleted { get; set; }
+        public EPriority Priority { get; set; }
+        public DateTime? DueDate { get; set; }
     }
 }

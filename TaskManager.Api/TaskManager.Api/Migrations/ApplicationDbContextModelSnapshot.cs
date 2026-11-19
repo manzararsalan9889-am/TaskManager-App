@@ -229,7 +229,13 @@ namespace TaskManager.Api.Migrations
                         .IsRequired()
                         .HasColumnType("longtext");
 
+                    b.Property<DateTime?>("DueDate")
+                        .HasColumnType("datetime(6)");
+
                     b.Property<int>("IsCompleted")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Priority")
                         .HasColumnType("int");
 
                     b.Property<string>("Title")
