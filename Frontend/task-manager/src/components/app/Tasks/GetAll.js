@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { CreateAxios } from '../../../CreateAxios';
 import EditTask from './EditTask';
@@ -18,26 +18,35 @@ export default function GetAll() {
   const [isOpenDelete, setIsOpenDelete] = useState(false);
   const [isOpenAdd, setIsOpenAdd]   = useState(false);
   const [filter, setFilter]         = useState('all');
+  const [priorityFilter, setPriorityFilter] = useState('');
+  const [sortByDueDate, setSortByDueDate] = useState(false);
   const toast = useToast();
+  const toastRef = useRef(toast);
+  toastRef.current = toast;
 
-  useEffect(() => { getAll(); }, []);
-
-  const editOpen   = (data) => { setEditData(data); setIsOpen(true); };
-  const deleteOpen = (data) => { setEditData(data); setIsOpenDelete(true); };
-
-  const getAll = () => {
+  const getAll = useCallback(() => {
     setLoading(true);
-    CreateAxios.get('TaskManager/GetAllTasks')
+    CreateAxios.get('tasks', {
+      params: {
+        priority: priorityFilter === '' ? undefined : priorityFilter,
+        sortBy: sortByDueDate ? 'dueDate' : undefined,
+      },
+    })
       .then((res) => {
         if (res.data) setStudents(res.data);
-        else toast.open(res.data.result.message, 'text-red-400', <MdErrorOutline />);
+      else toastRef.current.open(res.data.result.message, 'text-red-400', <MdErrorOutline />);
         setLoading(false);
       })
       .catch(() => {
-        toast.open('Something went wrong!', 'text-red-400', <MdErrorOutline />);
+      toastRef.current.open('Something went wrong!', 'text-red-400', <MdErrorOutline />);
         setLoading(false);
       });
-  };
+  }, [priorityFilter, sortByDueDate]);
+
+  useEffect(() => { getAll(); }, [getAll]);
+
+  const editOpen   = (data) => { setEditData(data); setIsOpen(true); };
+  const deleteOpen = (data) => { setEditData(data); setIsOpenDelete(true); };
 
   const pending   = students.filter(t => !t.isCompleted);
   const completed = students.filter(t =>  t.isCompleted);
@@ -70,6 +79,35 @@ export default function GetAll() {
           <BiLinkAlt size={16} />
           Get by Status
         </Link>
+      </div>
+
+      {/* ── PRIORITY / SORT CONTROLS ── */}
+      <div className="flex flex-wrap items-center gap-3">
+        <label className="flex items-center gap-2 text-xs font-semibold text-stone-500">
+          Priority
+          <select
+            value={priorityFilter}
+            onChange={(event) => setPriorityFilter(event.target.value)}
+            className="rounded-xl border border-stone-200 bg-white px-3 py-2 text-xs text-stone-700 outline-none focus:border-emerald-500 focus:ring-2 focus:ring-emerald-100"
+          >
+            <option value="">All priorities</option>
+            <option value="0">Low</option>
+            <option value="1">Medium</option>
+            <option value="2">High</option>
+          </select>
+        </label>
+        <button
+          type="button"
+          aria-pressed={sortByDueDate}
+          onClick={() => setSortByDueDate((sort) => !sort)}
+          className={`rounded-xl border px-3 py-2 text-xs font-semibold transition-colors ${
+            sortByDueDate
+              ? 'border-emerald-600 bg-emerald-700 text-white'
+              : 'border-stone-200 bg-white text-stone-600 hover:bg-stone-50'
+          }`}
+        >
+          {sortByDueDate ? 'Due date: sorted' : 'Sort by due date'}
+        </button>
       </div>
 
       {/* ── FILTER TABS ── */}
@@ -140,8 +178,8 @@ export default function GetAll() {
           <div className="hidden md:block bg-white rounded-2xl border border-stone-200 shadow-sm overflow-hidden">
 
             {/* Head */}
-            <div className="grid grid-cols-[52px_1fr_1.3fr_2fr_110px_96px] gap-4 px-6 py-3 bg-stone-50 border-b border-stone-100">
-              {['ID', 'Name', 'Title', 'Description', 'Status', 'Actions'].map(h => (
+            <div className="grid grid-cols-[52px_1fr_1.3fr_2fr_90px_110px_120px_96px] gap-4 px-6 py-3 bg-stone-50 border-b border-stone-100">
+              {['ID', 'Name', 'Title', 'Description', 'Priority', 'Due date', 'Status', 'Actions'].map(h => (
                 <span key={h} className="text-[10px] font-bold text-stone-400 uppercase tracking-widest">{h}</span>
               ))}
             </div>
@@ -153,7 +191,7 @@ export default function GetAll() {
               ) : filtered.map(item => (
                 <div
                   key={item.id}
-                  className="grid grid-cols-[52px_1fr_1.3fr_2fr_110px_96px] gap-4 px-6 py-4 items-center
+                  className="grid grid-cols-[52px_1fr_1.3fr_2fr_90px_110px_120px_96px] gap-4 px-6 py-4 items-center
                     hover:bg-stone-50/70 transition-colors group"
                 >
                   <span className="text-xs font-mono text-stone-400 bg-stone-100 px-2 py-0.5 rounded w-fit">
@@ -164,6 +202,8 @@ export default function GetAll() {
                   </span>
                   <span className="text-sm text-stone-500 truncate">{item.title}</span>
                   <span className="text-xs text-stone-400 truncate">{item.description}</span>
+                  <PriorityBadge priority={item.priority} />
+                  <span className="text-xs text-stone-500">{formatDueDate(item.dueDate)}</span>
                   <StatusBadge done={item.isCompleted} />
                   <div className="flex items-center gap-2">
                     <button
@@ -217,11 +257,18 @@ export default function GetAll() {
                   <span className="text-[11px] font-mono text-stone-400 bg-stone-100 px-2 py-0.5 rounded">
                     #{String(item.id).padStart(3, '0')}
                   </span>
-                  <StatusBadge done={item.isCompleted} />
+                  <div className="flex items-center gap-2">
+                    <PriorityBadge priority={item.priority} />
+                    <StatusBadge done={item.isCompleted} />
+                  </div>
                 </div>
 
                 <p className="text-sm font-bold text-stone-800 mb-0.5">{item.name}</p>
                 <p className="text-xs font-medium text-stone-500 mb-3">{item.title}</p>
+
+                <p className="text-xs text-stone-500 mb-3">
+                  Due: <span className="font-medium text-stone-700">{formatDueDate(item.dueDate)}</span>
+                </p>
 
                 <div className="border-t border-stone-100 pt-2.5 flex items-end justify-between gap-3">
                   <p className="text-xs text-stone-400 leading-relaxed flex-1">{item.description}</p>
@@ -285,6 +332,27 @@ function StatusBadge({ done }) {
       }
     </span>
   );
+}
+
+function PriorityBadge({ priority }) {
+  const priorities = {
+    0: { label: 'Low', style: 'bg-sky-100 text-sky-700' },
+    1: { label: 'Medium', style: 'bg-amber-100 text-amber-700' },
+    2: { label: 'High', style: 'bg-rose-100 text-rose-700' },
+  };
+  const value = priorities[priority] || priorities[0];
+
+  return (
+    <span className={`inline-flex items-center text-[11px] font-semibold px-2.5 py-1 rounded-full ${value.style}`}>
+      {value.label}
+    </span>
+  );
+}
+
+function formatDueDate(dueDate) {
+  if (!dueDate) return '—';
+  const date = dueDate.slice(0, 10);
+  return new Date(`${date}T00:00:00`).toLocaleDateString();
 }
 
 function EmptyFilter({ filter, onReset }) {

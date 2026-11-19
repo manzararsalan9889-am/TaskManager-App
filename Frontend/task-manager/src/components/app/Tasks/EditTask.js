@@ -26,18 +26,29 @@ export default function EditTask({ isOpen, setIsOpen, id, getAll, editData }) {
       title: "",
       description: "",
       isCompleted: isCompleted,
+      priority: 1,
+      dueDate: "",
     },
     validationSchema: schema,
     enableReinitialize: true,
     onSubmit(val) {
       val.isCompleted = Number(val.isCompleted);
+      val.priority = Number(val.priority);
+      val.dueDate = val.dueDate || null;
       editTask(val);
     },
   });
 
   useEffect(() => {
-    if (id) setValues(editData)
-  }, [id])
+    if (id && editData) {
+      setValues({
+        ...editData,
+        isCompleted: String(editData.isCompleted),
+        priority: String(editData.priority ?? 1),
+        dueDate: editData.dueDate ? editData.dueDate.slice(0, 10) : "",
+      });
+    }
+  }, [id, editData, setValues])
 
   const editTask = (val) => {
     setLoading(true);
@@ -112,6 +123,33 @@ export default function EditTask({ isOpen, setIsOpen, id, getAll, editData }) {
               <MdErrorOutline size={13} /> {errors.description}
             </p>
           )}
+        </div>
+
+        {/* Priority and due date */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div className="space-y-1.5">
+            <label className="text-[11px] font-bold text-stone-500 uppercase tracking-widest">Priority</label>
+            <select
+              name="priority"
+              value={values.priority}
+              onChange={handleChange}
+              className="w-full rounded-xl border border-stone-200 bg-stone-50 px-4 py-2.5 text-sm text-stone-800 outline-none transition-all focus:bg-white focus:border-emerald-500 focus:ring-2 focus:ring-emerald-100"
+            >
+              <option value="0">Low</option>
+              <option value="1">Medium</option>
+              <option value="2">High</option>
+            </select>
+          </div>
+          <div className="space-y-1.5">
+            <label className="text-[11px] font-bold text-stone-500 uppercase tracking-widest">Due date</label>
+            <input
+              type="date"
+              name="dueDate"
+              value={values.dueDate}
+              onChange={handleChange}
+              className="w-full rounded-xl border border-stone-200 bg-stone-50 px-4 py-2.5 text-sm text-stone-800 outline-none transition-all focus:bg-white focus:border-emerald-500 focus:ring-2 focus:ring-emerald-100"
+            />
+          </div>
         </div>
 
         {/* Is Completed */}

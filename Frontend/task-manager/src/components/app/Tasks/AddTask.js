@@ -22,10 +22,18 @@ export default function AddTask({ isOpen, setIsOpen, id, getAll, editData }) {
 
   const { handleChange, handleSubmit, values, errors, touched, handleBlur, setValues } =
     useFormik({
-      initialValues: { title: "", description: "", isCompleted: isCompleted },
+      initialValues: {
+        title: "",
+        description: "",
+        isCompleted: isCompleted,
+        priority: 1,
+        dueDate: "",
+      },
       validationSchema: schema,
       onSubmit(val) {
         val.isCompleted = Number(val.isCompleted);
+        val.priority = Number(val.priority);
+        val.dueDate = val.dueDate || null;
         addTask(val);
       },
     });
@@ -43,7 +51,7 @@ export default function AddTask({ isOpen, setIsOpen, id, getAll, editData }) {
           toast.open("Task Added Successfully.", "text-green-500", <MdOutlineDone />);
           setIsOpen(!isOpen);
           getAll();
-          setValues({ title: "", description: "", isCompleted: "0" });
+          setValues({ title: "", description: "", isCompleted: "0", priority: 1, dueDate: "" });
         } else {
           toast.open(res.data.result.message, "text-red-500", <MdErrorOutline />);
         }
@@ -114,6 +122,33 @@ export default function AddTask({ isOpen, setIsOpen, id, getAll, editData }) {
                 {errors.description}
               </p>
             )}
+          </div>
+
+          {/* Priority and due date */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <div className="flex flex-col gap-1.5">
+              <label className="text-xs font-semibold uppercase tracking-widest text-gray-500">Priority</label>
+              <select
+                name="priority"
+                value={values.priority}
+                onChange={handleChange}
+                className={`${inputBase} ${inputNormal}`}
+              >
+                <option value="0">Low</option>
+                <option value="1">Medium</option>
+                <option value="2">High</option>
+              </select>
+            </div>
+            <div className="flex flex-col gap-1.5">
+              <label className="text-xs font-semibold uppercase tracking-widest text-gray-500">Due date</label>
+              <input
+                type="date"
+                name="dueDate"
+                value={values.dueDate}
+                onChange={handleChange}
+                className={`${inputBase} ${inputNormal}`}
+              />
+            </div>
           </div>
 
           {/* Status Field */}
